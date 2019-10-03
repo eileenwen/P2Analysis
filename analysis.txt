@@ -1,0 +1,57 @@
+
+NAME: EILEEN WEN    NETID: ew174
+
+Run WordGramBenchmark for wordgrams of size 2-10 and record
+the number of WordGram values/objects that occur more than
+once as reported by the runs. For example, with WSIZE = 2,
+which generates 2-grams, the output of benchmark and benchmarkShift
+each indicates that the total # wordgrams generated is 177,634
+and that the # unique wordgrams is 117,181
+
+This means there are 177,634 - 117,181 = 60,453 WordGram values that
+occur more than once. Find these same numbers/values for other orders
+of k and complete the table below for different k-grams/different
+values of WSIZE
+
+WSIZE    # duplicates
+2        60,453
+3        10,756
+4        1,987
+5         667
+6         362
+7         226
+8         151
+9         105
+10        73
+
+=====
+Explain in your own words the conceptual differences between
+the benchmark and benchmarkShift methods.
+Answer these questions:
+
+(1) Why the results of these methods should be the same in
+terms of changes made to the HashSet parameter passed to each method.
+    Both of these methods return the number of wordgrams that are added to each set. While they have different methods of
+ counting the total number of wordgrams (benchmark creates a new wordgram starting with each new index as a for loop goes through
+ the entire file of strings, benchmark shift starts by creating one word gram with the string of the very first index, then
+ creating new word grams by shifting the set, removing the first string in the wordgram and adding the next string to create
+ a new wordgram), the total number of wordgrams will be the same since they are drawing from the same string file.
+
+
+(2) What are the conceptual differences between the two
+benchmarking methods
+    Both methods create a set that contains the word grams made from a given file of Strings. However, benchmark
+ creates the wordgrams by using a for loop to go through the file. It then creates wordgrams starting with each new
+ index that the for loop is currently on. On the other hand, benchmarkShift creates a new wordgram by using the previous
+ wordgram and shifting such that the first string is removed and the next string in the file becomes added to the end.
+ While these two methods use different algorithims, the final wordgram is the same.
+
+
+(3) Is the total amount of memory allocated for arrays
+the same or different in the two methods? Account for
+arrays created in the methods and arrays created by
+WordGram objects. Try to be quantitative in answering.
+
+    The memory allocated for the arrays are different in the two methods. This can be proved by looking at the runtimes for
+each method. The time is took to run benchmark was 0.564 whereas the time to run benchmarkShift was only 0.356. The fact that
+benchmarkShift took less time proves that there is less memory allocated,
